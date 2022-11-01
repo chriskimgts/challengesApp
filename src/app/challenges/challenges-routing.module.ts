@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core'
 import { Routes } from '@angular/router'
 import { NativeScriptRouterModule } from '@nativescript/angular'
 
@@ -18,6 +18,13 @@ const routes: Routes = [
         outlet: 'currentChallenge',
       },
     ],
+  },
+  {
+    path: ':mode',
+    loadChildren: () =>
+      import('./challenge-edit/challenge-edit.module').then(
+        (x) => x.ChallengeEditModule,
+      ),
   },
   { path: '', redirectTo: '/challenges/tabs', pathMatch: 'full' },
 ]

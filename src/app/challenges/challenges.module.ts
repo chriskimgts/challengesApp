@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core'
 import { NativeScriptCommonModule } from '@nativescript/angular'
 
 import { ChallengesRoutingModule } from './challenges-routing.module'
@@ -14,5 +14,6 @@ import { SharedModule } from '../shared/shared.module'
     TodayComponent,
   ],
   imports: [NativeScriptCommonModule, ChallengesRoutingModule, SharedModule],
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class ChallengesModule {}
