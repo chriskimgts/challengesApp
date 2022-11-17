@@ -12,7 +12,7 @@ export class TodayComponent implements OnInit {
   ngOnInit(): void {
     const foo = ''
   }
-  onDemo() {
-    this.isHighlighted = !this.isHighlighted
+  onActionSelected(action: 'complete' | 'fail' | 'cancel') {
+    console.log(action);
   }
 }

@@ -10,25 +10,9 @@
 @import '../../../theme/colors';
 @import '~@nativescript/theme/blue';
 
-FlexboxLayout {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.btn {
-  width: 80%;
-  padding: 1;
-}
-
-.btn-success {
-  background: $success;
-  border-color: $success;
-  color: $white;
-}
-
-.btn-fail {
-  background: $fail;
-  border-color: $fail;
-  color: $white;
+GridLayout {
+  background-image: url('res://summit');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

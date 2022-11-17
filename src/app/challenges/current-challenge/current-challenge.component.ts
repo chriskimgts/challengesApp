@@ -8,7 +8,8 @@ import { DayModalComponent } from '../day-modal/day-modal.component'
   templateUrl: './current-challenge.component.html',
   styleUrls: [
     '_current-challenge.component.common.scss',
-    'current-challenge.component.scss',
+    './current-challenge.component.android.scss',
+    './current-challenge.component.ios.scss',
   ],
 })
 export class CurrentChallengeComponent implements OnInit {

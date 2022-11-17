@@ -13,13 +13,14 @@ export class ActionBarComponent implements OnInit {
   @Input() title: string
   @Input() showBackButton = true
   @Input() hasMenu = true
+
   constructor(
     private page: Page,
     private router: RouterExtensions,
     private uiService: UIService,
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
   get android() {
     return isAndroid
@@ -28,21 +29,28 @@ export class ActionBarComponent implements OnInit {
   get canGoBack() {
     return this.router.canGoBack() && this.showBackButton
   }
+
   onGoBack() {
     this.router.backToPreviousPage()
   }
+
   onLoadedActionBar() {
     if (isAndroid) {
       const androidToolbar = this.page.actionBar.nativeView
       const backButton = androidToolbar.getNavigationIcon()
+      let color = '#171717'
+      if (this.hasMenu) {
+        color = '#ffffff'
+      }
       if (backButton) {
         backButton.setColorFilter(
-          android.graphics.Color.parseColor('#171717'),
+          android.graphics.Color.parseColor(color),
           (<any>android.graphics).PorterDuff.Mode.SRC_ATOP,
         )
       }
     }
   }
+
   onToggleMenu() {
     this.uiService.toggleDrawer()
   }

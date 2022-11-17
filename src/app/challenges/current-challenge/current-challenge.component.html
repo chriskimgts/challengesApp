@@ -39,15 +39,10 @@
         class="day completed"
         [row]="getRow(i, day)"
         [col]="day.dayInWeek"
+        (tap)="onChangeStatus()"
       >
         <Label [text]="day.dayInMonth"></Label>
       </FlexboxLayout>
     </GridLayout>
-    <!-- <Label
-    class="title"
-    text="The current challenge"
-    horizontalAlignment="center"
-  ></Label>
-  <Button text="Change Status" (tap)="onChangeStatus()"></Button> -->
   </FlexboxLayout>
 </ScrollView>

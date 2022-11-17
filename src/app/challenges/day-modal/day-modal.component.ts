@@ -13,7 +13,7 @@ export class DayModalComponent implements OnInit {
   ngOnInit(): void {
     this.loadedDate = (this.modalParams.context as { date: Date }).date
   }
-  onHandleInput(action: string) {
+  onHandleInput(action: 'complete' | 'fail' | 'cancel') {
     this.modalParams.closeCallback(action)
   }
 }

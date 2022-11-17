@@ -2,15 +2,8 @@
   title="Today challenge"
   [showBackButton]="false"
 ></app-action-bar>
-<FlexboxLayout>
-  <Button class="btn btn-success -rounded-lg" text="Completed"></Button>
-  <Button class="btn btn-fail -rounded-lg" text="Failed"></Button>
-  <Button class="btn btn-flat -rounded-lg" text="Reset"></Button>
-  <!-- <Label class="h1" text="Today"></Label>
-  <Button
-    text="Click me"
-    (tap)="onDemo()"
-    class="standard"
-    [ngClass]="{ highlighted: isHighlighted }"
-  ></Button> -->
-</FlexboxLayout>
+<GridLayout>
+  <app-challenge-actions>
+    (actionSelect)="onActionSelected($event)" cancelText="Reset"
+  </app-challenge-actions>
+</GridLayout>

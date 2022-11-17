@@ -1,9 +1,6 @@
 <FlexboxLayout>
-  <Label [text]="loadedDate | date"></Label>
-  <Button
-    class="btn"
-    text="Completed"
-    (tap)="onHandleInput('complete')"
-  ></Button>
-  <Button class="btn" text="Failed" (tap)="onHandleInput('fail')"></Button>
+  <app-challenge-actions
+    (actionSelect)="onHandleInput($event)"
+    cancelText="Reset"
+  ></app-challenge-actions>
 </FlexboxLayout>
