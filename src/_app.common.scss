@@ -23,11 +23,23 @@ ActionBar {
     color: $primary;
     font-weight: bold;
   }
+  .label.invalid {
+    color: red;
+  }
   .input {
     border-bottom-width: 2;
     border-color: $primary;
     width: 100%;
   }
+}
+
+.h1 {
+  font-weight: bold;
+  color: $primary;
+}
+
+.fa {
+  font-family: 'FontAwesome, Font-Awesome';
 }
 
 .drawer-container {
@@ -37,8 +49,7 @@ ActionBar {
   align-items: center;
   padding: 20;
 }
-
-.btn-flat {
+TextField .btn-flat {
   background: transparent;
   border-color: transparent;
   border-width: 1;
@@ -47,4 +58,9 @@ ActionBar {
 .btn {
   width: 80%;
   font-size: 24;
+}
+
+.ng-invalid.ng-touched {
+  border-bottom-color: red;
+  color: red;
 }
