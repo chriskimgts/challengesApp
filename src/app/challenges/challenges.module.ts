@@ -7,7 +7,6 @@ import { CurrentChallengeComponent } from './current-challenge/current-challenge
 import { TodayComponent } from './today/today.component'
 import { SharedModule } from '../shared/shared.module'
 import { ChallengeActionsModule } from './challenge-actions/challenge-actions.module'
-
 @NgModule({
   declarations: [
     ChallengeTabsComponent,

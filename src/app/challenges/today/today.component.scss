@@ -1,18 +1,6 @@
-/* .standard {
-  background-color: blue;
-  color: white;
-}
-
-.highlighted {
-  background-color: red;
-  color: white;
-} */
-@import '../../../theme/colors';
-@import '~@nativescript/theme/blue';
-
-GridLayout {
-  background-image: url('res://summit');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+.page {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20;
 }

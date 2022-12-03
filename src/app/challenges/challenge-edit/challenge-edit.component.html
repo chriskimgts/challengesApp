@@ -13,35 +13,36 @@
       class="input"
       returnKeyType="next"
       required
-      ngModel
+      [(ngModel)]="title"
       #titleCtrl="ngModel"
     ></TextField>
     <Label
       *ngIf="!titleCtrl.valid && titleCtrl.touched"
-      text="Please enter a vallid title."
+      text="Please enter a valid title."
     ></Label>
   </StackLayout>
   <StackLayout class="input-field">
     <Label
       class="label"
       text="Description"
-      [ngClass]="{ invalid: !titleCtrl.valid && titleCtrl.touched }"
+      [ngClass]="{ invalid: !descriptionCtrl.valid && descriptionCtrl.touched }"
     ></Label>
     <TextView
       class="input"
       returnKeyType="done"
       required
-      ngModel
+      [(ngModel)]="description"
       #descriptionCtrl="ngModel"
     ></TextView>
     <Label
       *ngIf="!descriptionCtrl.valid && descriptionCtrl.touched"
-      text="Please enter a vallid description."
+      text="Please enter a valid description."
     ></Label>
   </StackLayout>
   <Button
     class="btn btn-primary"
     text="Save"
     [isEnabled]="titleCtrl.valid && descriptionCtrl.valid"
+    (tap)="onSubmit(titleCtrl.value, descriptionCtrl.value)"
   ></Button>
 </FlexboxLayout>

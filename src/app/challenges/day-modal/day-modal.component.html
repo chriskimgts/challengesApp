@@ -1,6 +1,7 @@
 <FlexboxLayout>
+  <Label class="h1" [text]="loadedDate | date"></Label>
   <app-challenge-actions
     (actionSelect)="onHandleInput($event)"
-    cancelText="Reset"
+    [chosen]="loadedStatus"
   ></app-challenge-actions>
 </FlexboxLayout>

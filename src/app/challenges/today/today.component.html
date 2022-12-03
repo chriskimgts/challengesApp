@@ -1,9 +1,21 @@
 <app-action-bar
-  title="Today challenge"
+  title="Today's challenge"
   [showBackButton]="false"
 ></app-action-bar>
-<GridLayout>
-  <app-challenge-actions>
-    (actionSelect)="onActionSelected($event)" cancelText="Reset"
-  </app-challenge-actions>
-</GridLayout>
+<FlexboxLayout class="page" *ngIf="!currentDay">
+  <Label text="No challenge found!"></Label>
+  <Button
+    class="btn btn-primary"
+    text="Create One"
+    nsRouterLink="/challenges/replace"
+    pageTransition="slideLeft"
+  ></Button>
+</FlexboxLayout>
+<FlexboxLayout class="page" *ngIf="currentDay">
+  <Label class="h1" [text]="currentDay.date | date"></Label>
+  <app-challenge-actions
+    (actionSelect)="updateStatus($event)"
+    [chosen]="getActionName()"
+    cancelText="Reset"
+  ></app-challenge-actions>
+</FlexboxLayout>

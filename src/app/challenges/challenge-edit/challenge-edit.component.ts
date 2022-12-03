@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { PageRoute } from '@nativescript/angular'
+import { PageRoute, RouterExtensions } from '@nativescript/angular'
+import { take } from 'rxjs/operators'
+import { ChallengeService } from '../challenge.service'
 
 @Component({
   selector: 'app-challenge-edit',
@@ -9,12 +11,20 @@ import { PageRoute } from '@nativescript/angular'
 })
 export class ChallengeEditComponent implements OnInit {
   isCreating = true
+  title = ''
+  description = ''
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private pageRoute: PageRoute,
+    private router: RouterExtensions,
+    private challengeService: ChallengeService,
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // this.activatedRoute.paramMap.subscribe(paramMap => {
+    //   console.log(paramMap.get('mode'));
+    // });
     this.pageRoute.activatedRoute.subscribe((activatedRoute) => {
       activatedRoute.paramMap.subscribe((paramMap) => {
         if (!paramMap.has('mode')) {
@@ -22,8 +32,26 @@ export class ChallengeEditComponent implements OnInit {
         } else {
           this.isCreating = paramMap.get('mode') !== 'edit'
         }
-        console.log(paramMap.get('mode'))
+
+        if (!this.isCreating) {
+          this.challengeService.currentChallenge
+            .pipe(take(1))
+            .subscribe((challenge) => {
+              this.title = challenge.title
+              this.description = challenge.description
+            })
+        }
       })
     })
+  }
+
+  onSubmit(title: string, description: string) {
+    // ...
+    if (this.isCreating) {
+      this.challengeService.createNewChallenge(title, description)
+    } else {
+      this.challengeService.updateChallenge(title, description)
+    }
+    this.router.backToPreviousPage()
   }
 }
