@@ -20,6 +20,7 @@ export class ChallengeActionsComponent implements OnInit, OnChanges {
   @Output() foo = new EventEmitter<'complete' | 'fail' | 'cancel'>()
   @Input() cancelText = 'Cancel'
   @Input() chosen: 'complete' | 'fail' = null
+  @Input() startDone = false
   action: 'complete' | 'fail' = null
 
   done = false
@@ -30,6 +31,11 @@ export class ChallengeActionsComponent implements OnInit, OnChanges {
       this.action = changes.chosen.currentValue
       if (changes.chosen.currentValue === null) {
         this.done = false
+      }
+    }
+    if (changes.startDone) {
+      if (changes.startDone.currentValue) {
+        this.done = true
       }
     }
   }

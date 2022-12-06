@@ -1,5 +1,8 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core'
-import { NativeScriptModule } from '@nativescript/angular'
+import {
+  NativeScriptHttpClientModule,
+  NativeScriptModule,
+} from '@nativescript/angular'
 import { NativeScriptFormsModule } from '@nativescript/angular'
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular'
 
@@ -16,6 +19,7 @@ import { TodayComponent } from './challenges/today/today.component'
   imports: [
     NativeScriptModule,
     NativeScriptFormsModule,
+    NativeScriptHttpClientModule,
     NativeScriptUISideDrawerModule,
     ReactiveFormsModule,
     AppRoutingModule,

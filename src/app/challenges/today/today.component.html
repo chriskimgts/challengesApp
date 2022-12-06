@@ -16,6 +16,7 @@
   <app-challenge-actions
     (actionSelect)="updateStatus($event)"
     [chosen]="getActionName()"
+    [startDone]="getActionName() === 'complete' || getActionName() === 'fail'"
     cancelText="Reset"
   ></app-challenge-actions>
 </FlexboxLayout>
