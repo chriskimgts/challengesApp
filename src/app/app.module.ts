@@ -3,30 +3,25 @@ import {
   NativeScriptHttpClientModule,
   NativeScriptModule,
 } from '@nativescript/angular'
-import { NativeScriptFormsModule } from '@nativescript/angular'
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular'
 
 import { AppComponent } from './app.component'
-import { AuthComponent } from './auth/auth.component'
 import { AppRoutingModule } from './app-routing.module'
 import { DayModalComponent } from './challenges/day-modal/day-modal.component'
 import { SharedModule } from '../app/shared/shared.module'
 import { ChallengeActionsModule } from './challenges/challenge-actions/challenge-actions.module'
-import { ReactiveFormsModule } from '@angular/forms'
-import { TodayComponent } from './challenges/today/today.component'
+
 @NgModule({
   bootstrap: [AppComponent],
   imports: [
     NativeScriptModule,
-    NativeScriptFormsModule,
     NativeScriptHttpClientModule,
     NativeScriptUISideDrawerModule,
-    ReactiveFormsModule,
     AppRoutingModule,
     SharedModule,
     ChallengeActionsModule,
   ],
-  declarations: [AppComponent, AuthComponent, DayModalComponent],
+  declarations: [AppComponent, DayModalComponent],
   providers: [],
   schemas: [NO_ERRORS_SCHEMA],
   entryComponents: [DayModalComponent],

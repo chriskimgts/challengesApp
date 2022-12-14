@@ -10,6 +10,7 @@ import {
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
 import { RadSideDrawerComponent } from 'nativescript-ui-sidedrawer/angular'
 import { Subscription } from 'rxjs'
+import { AuthService } from './auth/auth.service'
 import { UIService } from './shared/ui.service'
 
 @Component({
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private uiService: UIService,
     private changeDetectionRef: ChangeDetectorRef,
     private vcRef: ViewContainerRef,
+    private authService: AuthService,
   ) {}
   ngOnInit(): void {
     this.drawerSub = this.uiService.drawerState.subscribe(() => {
@@ -43,6 +45,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   onLogout() {
     this.uiService.toggleDrawer()
+    this.authService.logout()
   }
   ngOnDestroy(): void {
     if (this.drawerSub) {
