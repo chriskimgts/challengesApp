@@ -12,9 +12,9 @@
   ></Button>
 </FlexboxLayout>
 <FlexboxLayout class="page" *ngIf="currentDay">
-  <Label class="h1" [text]="currentDay.date | date"></Label>
   <app-challenge-actions
     (actionSelect)="updateStatus($event)"
+    [currentDay]="currentDay.date | date"
     [chosen]="getActionName()"
     [startDone]="getActionName() === 'complete' || getActionName() === 'fail'"
     cancelText="Reset"

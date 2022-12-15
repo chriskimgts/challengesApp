@@ -21,6 +21,7 @@ export class ChallengeActionsComponent implements OnInit, OnChanges {
   @Input() cancelText = 'Cancel'
   @Input() chosen: 'complete' | 'fail' = null
   @Input() startDone = false
+  @Input() currentDay = null
   action: 'complete' | 'fail' = null
 
   done = false

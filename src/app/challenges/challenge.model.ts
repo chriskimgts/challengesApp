@@ -11,9 +11,6 @@ export class Challenge {
     if (_days.length > 0) {
       return
     }
-    // }
-    // this.currentYear = new Date().getFullYear()
-    // this.currentMonth = new Date().getMonth()
     const daysInMonth = new Date(this.year, this.month + 1, 0).getDate()
     for (let i = 1; i < daysInMonth + 1; i++) {
       const date = new Date(this.year, this.month, i)
